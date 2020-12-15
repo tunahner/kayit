@@ -11,13 +11,14 @@ let user = message.guild.member(message.mentions.members.first() || message.guil
 let isim = message.mentions.members.first() || message.guild.members.get(args[0]);//Useri tanımladık
 var sayi = 1 //Sıralam için sayı tanımladık
 let data = db.get(`isim.${message.guild.id}`)//İsim verisini data diye tanımladık
+let rol = db.fetch(`rol.${message.guild.id}`)
 if(!data) return message.channel.send(new MessageEmbed()
     .setColor("0x2f3136") 
     .setThumbnail(user.user.avatarURL ({ dynamic: true}))      
     .setDescription(`
     ${isim} Adlı Kullanıcı Daha Önce Kayıt Olmamış.`)
     .setColor("0x2f3136"))
-let isimler = data.filter(x => x.userID === isim.id).map(x => `${sayi++}- \`• ${x.isim} | ${x.yas}\`\n`).join("\n")
+let isimler = data.filter(x => x.userID === isim.id).map(x => `${sayi++}- \`• ${x.isim} | ${x.yas}\` (<@&${rol}>)\n`).join("\n")
 if(isimler === null) isimler = "Kullanıcı hiç kayıt olmamış"
 if(isimler === undefined) isimler = "Kullanıcı hiç kayıt olmamış"
 //------------------------------------------------KAYITLAR-----------------------------------------------\\      

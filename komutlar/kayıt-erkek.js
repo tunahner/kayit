@@ -53,8 +53,9 @@ datab.add(`yetkili.${message.author.id}.erkek`, 1)
 datab.add(`yetkili.${message.author.id}.toplam`, 1)
 let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
-const role = '783844486659702844'
-datab.add(`erkek.${message.guild.id}`, role)
+const rol = "783844486659702844";
+datab.set(`rol.${message.guild.id}`, rol)
+let rol1 = datab.fetch(`rol.${message.guild.id}`)
 
 member.setNickname(`${tag} ${name} | ${age}`)
 member.roles.add(erkek)
