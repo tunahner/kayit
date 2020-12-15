@@ -54,7 +54,7 @@ datab.add(`yetkili.${message.author.id}.toplam`, 1)
 let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
 const rol = "783844486659702844";
-datab.set(`rol.${message.guild.id}`, rol)
+datab.get(`rol.${message.guild.id}`, rol)
 let rol1 = datab.fetch(`rol.${message.guild.id}`)
 
 member.setNickname(`${tag} ${name} | ${age}`)
@@ -85,7 +85,11 @@ const saveall = new Discord.MessageEmbed()
 .addField(`Kayıt Saat`, `\`${kayıtsaat}\``, true)
 .setFooter('Striga Code')
 savelogs.send(saveall)
-
+  
+datab.set(`roller.${message.guild.id}`, {
+  rollerr: "783844486659702844"
+})
+  
 datab.push(`isim.${message.guild.id}`, {
   userID: member.id, 
   isim: name,
