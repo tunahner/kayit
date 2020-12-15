@@ -53,6 +53,8 @@ datab.add(`yetkili.${message.author.id}.erkek`, 1)
 datab.add(`yetkili.${message.author.id}.toplam`, 1)
 let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
+const role = '783844486659702844'
+datab.add(`erkek.${message.guild.id}`, role)
 
 member.setNickname(`${tag} ${name} | ${age}`)
 member.roles.add(erkek)
@@ -63,9 +65,9 @@ member.roles.remove(kayıtsız)
 const embed = new Discord.MessageEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
 .setDescription(`
-${member}, ${message.author} Tarafından Kayıt Edildi.
-${erkek}, ${erkek2} Rolleri Verildi.
-İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
+• ${member}, ${message.author} Tarafından Kayıt Edildi.
+• ${erkek}, ${erkek2} Rolleri Verildi.
+• İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
 .setFooter(`${message.author.username} Toplam ${alldata} Kayıta Sahip.`)
 .setColor("0x2f3136")
 message.channel.send(embed)
