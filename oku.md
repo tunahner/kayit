@@ -7,7 +7,7 @@
 
 
 
-`striganın linki: https://discord.gg/SdFce3p2As`
+`striganın linki: https://discord.gg/T2YZUkm3HQ`
 
 
 

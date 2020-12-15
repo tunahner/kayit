@@ -15,16 +15,7 @@ module.exports = client => {
       client.user.username
     } ismi ile giriş yapıldı!`
   );
-  client.user.setStatus("online");
-  var oyun = [
-    "",
-
-  ];
-
-  setInterval(function() {
-    var random = Math.floor(Math.random() * (oyun.length - 0 + 1) + 0);
 
     client.user.setActivity("Striga");
-  }, 2 * 2500);
 };
 
