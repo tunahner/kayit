@@ -9,10 +9,9 @@ exports.run =  async (client, message, args) => {
 if(!['783839815337508914'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
 return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-const erkekrol = message.guild.roles.cache.find(r => r.id === '792728494513717258') //erkekrol ismini değişmeyin
-const kayıtsız = message.guild.roles.cache.find(r => r.id === '783846167691395082')
-
-
+const erkekrol = message.guild.roles.cache.find(r => r.id === 'ERKEK ROL ID') //erkekrol ismini değişmeyin
+const erkekrol2 = message.guild.roles.cache.find(r => r.id === 'ERKEK ROL ID')
+const kayıtsız = message.guild.roles.cache.find(r => r.id === 'KAYITSIZ ROL ID')
 
 
 const member = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
@@ -49,6 +48,7 @@ let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
 member.setNickname(`${tag} ${name} | ${age}`)
 member.roles.add(erkekrol)
+member.roles.add(erkekrol2)
 member.roles.remove(kayıtsız)
 
 
@@ -56,6 +56,7 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
 .setDescription(`
 • ${member}, ${message.author} Tarafından Kayıt Edildi.
+• ${erkekrol}, ${erkekrol2} Rolleri Verildi.
 • İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
 .setFooter(`${message.author.username} Toplam ${alldata} Kayıta Sahip.`)
 .setColor("0x2f3136")

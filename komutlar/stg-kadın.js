@@ -6,11 +6,12 @@ const { parseZone } = require("moment");
 
 exports.run =  async (client, message, args) => {
   
-if(!['783839815337508914'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
+if(!['YETKILI ID'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
 return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-const kadınrol = message.guild.roles.cache.find(r => r.id === '792728496597630986') //kadınrol isimini değişme
-const kayıtsız = message.guild.roles.cache.find(r => r.id === '783846167691395082')
+const kadınrol = message.guild.roles.cache.find(r => r.id === 'KADIN ROL ID') //kadınrol isimini değişme
+const kadınrol2 = message.guild.roles.cache.find(r => r.id === 'KADIN ROL ID')
+const kayıtsız = message.guild.roles.cache.find(r => r.id === 'KAYITSIZ ROL ID')
 
 
 
@@ -46,12 +47,9 @@ datab.add(`yetkili.${message.author.id}.kadin`, 1)
 datab.add(`yetkili.${message.author.id}.toplam`, 1)
 let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
-const rol = "783844484449435698";
-datab.set(`rol.${message.guild.id}`, rol)
-let rol1 = datab.fetch(`rol.${message.guild.id}`)
-
 member.setNickname(`${tag} ${name} | ${age}`)
 member.roles.add(kadınrol)
+member.roles.add(kadınrol2)
 member.roles.remove(kayıtsız)
 
 
@@ -59,7 +57,7 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
 .setDescription(`
 • ${member}, ${message.author} Tarafından Kayıt Edildi.
-• ${kadınrol}Rolleri Verildi.
+• ${kadınrol}, ${kadınrol2} Rolleri Verildi.
 • İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
 .setFooter(`${message.author.username} Toplam ${alldata} Kayıta Sahip.`)
 .setColor("0x2f3136")

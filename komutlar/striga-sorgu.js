@@ -27,7 +27,7 @@ const sorgu1 = new Discord.MessageEmbed()
 .setDescription(`˃ Toplam Kayıtların: \`${kayıtlar}\`
 ˃ Toplam Erkek Kayıtların: \`${erkek}\`
 ˃ Toplam Kadın Kayıtların: \`${kadın}\``)
-.setFooter(`Sadxmamy ❤️ Striga`) // evet bilerek kaldırmadım ayriyetten sıfırdan yazdım :)
+.setColor('#dcdd64')
  return message.channel.send(sorgu1)
 };
   
@@ -48,7 +48,7 @@ const sorgu2 = new Discord.MessageEmbed()
 .setDescription(`˃ Toplam Kayıtların: \`${kayıtlar1}\`
 ˃ Toplam Erkek Kayıtların: \`${erkek1}\`
 ˃ Toplam Kadın Kayıtların: \`${kadın1}\``)
-.setFooter(`Sadxmamy ❤️ Striga`) // evet bilerek kaldırmadım ayriyetten sıfırdan yazdım :)
+.setColor('#dcdd64')
  return message.channel.send(sorgu2)
   
 };

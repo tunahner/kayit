@@ -30,7 +30,7 @@ const embed = new MessageEmbed()
     .setAuthor(`Bu Kullanıcı ${sayi-1} Kere Kayıt Olmuş`) 
     .setDescription(`
     ${isimler}`)
-    .setColor("0x2f3136")
+    .setColor("#e99546")
 message.channel.send(embed)
 }
 
