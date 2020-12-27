@@ -9,7 +9,7 @@ exports.run =  async (client, message, args) => {
 if(!['783839815337508914'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
 return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-const erkek = message.guild.roles.cache.find(r => r.id === '792728494513717258')
+const erkekrol = message.guild.roles.cache.find(r => r.id === '792728494513717258') //erkekrol ismini değişmeyin
 const kayıtsız = message.guild.roles.cache.find(r => r.id === '783846167691395082')
 
 
@@ -48,7 +48,7 @@ datab.add(`yetkili.${message.author.id}.toplam`, 1)
 let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
 member.setNickname(`${tag} ${name} | ${age}`)
-member.roles.add(erkek)
+member.roles.add(erkekrol)
 member.roles.remove(kayıtsız)
 
 
@@ -67,7 +67,7 @@ datab.push(`isim.${message.guild.id}`, {
   userID: member.id, 
   isim: name,
   yas: age,
-  role: "<@&792728494513717258>",
+  role: erkekrol.id,
   tag: tag
 })
 

@@ -18,7 +18,7 @@ if(!data) return message.channel.send(new MessageEmbed()
     .setDescription(`
     ${isim} Adlı Kullanıcı Daha Önce Kayıt Olmamış.`)
     .setColor("0x2f3136"))
-let isimler = data.filter(x => x.userID === isim.id).map(x => `${sayi++}- \`• ${x.isim} | ${x.yas}\`  (${x.role})\n`).join("\n")
+let isimler = data.filter(x => x.userID === isim.id).map(x => `${sayi++}- \`• ${x.isim} | ${x.yas}\`  (<@&${x.role}>)\n`).join("\n")
 if(isimler === null) isimler = "Kullanıcı hiç kayıt olmamış"
 if(isimler === undefined) isimler = "Kullanıcı hiç kayıt olmamış"
 //------------------------------------------------KAYITLAR-----------------------------------------------\\      

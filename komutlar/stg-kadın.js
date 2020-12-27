@@ -9,7 +9,7 @@ exports.run =  async (client, message, args) => {
 if(!['783839815337508914'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
 return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-const kadın = message.guild.roles.cache.find(r => r.id === '792728496597630986')
+const kadınrol = message.guild.roles.cache.find(r => r.id === '792728496597630986') //kadınrol isimini değişme
 const kayıtsız = message.guild.roles.cache.find(r => r.id === '783846167691395082')
 
 
@@ -51,7 +51,7 @@ datab.set(`rol.${message.guild.id}`, rol)
 let rol1 = datab.fetch(`rol.${message.guild.id}`)
 
 member.setNickname(`${tag} ${name} | ${age}`)
-member.roles.add(kadın)
+member.roles.add(kadınrol)
 member.roles.remove(kayıtsız)
 
 
@@ -59,7 +59,7 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
 .setDescription(`
 • ${member}, ${message.author} Tarafından Kayıt Edildi.
-• ${kadın}Rolleri Verildi.
+• ${kadınrol}Rolleri Verildi.
 • İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
 .setFooter(`${message.author.username} Toplam ${alldata} Kayıta Sahip.`)
 .setColor("0x2f3136")
@@ -70,7 +70,7 @@ datab.push(`isim.${message.guild.id}`, {
   userID: member.id, 
   isim: name,
   yas: age,
-  role: "<@&792728496597630986>",
+  role: kadınrol.id,
   tag: tag
 })
 
