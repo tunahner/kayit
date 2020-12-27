@@ -9,15 +9,8 @@ exports.run =  async (client, message, args) => {
 if(!['783839815337508914'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
 return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-const kadın = message.guild.roles.cache.find(r => r.id === '783844484449435698')
-const kadın2 = message.guild.roles.cache.find(r => r.id === '783844485674041366')
+const kadın = message.guild.roles.cache.find(r => r.id === '792728496597630986')
 const kayıtsız = message.guild.roles.cache.find(r => r.id === '783846167691395082')
-const savelogs = message.guild.channels.cache.find(c => c.id === '784093776523690014')
-if(!kadın) return message.channel.send('1.ci Erkek rolü ayarlanmamış.')
-if(!kadın2) return message.channel.send('2.ci Erkek rolü ayarlanmamış.')
-if(!kayıtsız) return message.channel.send('Kayıtsız rolü ayarlanmamış')
-if(!savelogs) return message.channel.send('Save log ayarlanmamış.')
-
 
 
 
@@ -59,7 +52,6 @@ let rol1 = datab.fetch(`rol.${message.guild.id}`)
 
 member.setNickname(`${tag} ${name} | ${age}`)
 member.roles.add(kadın)
-member.roles.add(kadın2)
 member.roles.remove(kayıtsız)
 
 
@@ -67,29 +59,18 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
 .setDescription(`
 • ${member}, ${message.author} Tarafından Kayıt Edildi.
-• ${kadın}, ${kadın2} Rolleri Verildi.
+• ${kadın}Rolleri Verildi.
 • İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
 .setFooter(`${message.author.username} Toplam ${alldata} Kayıta Sahip.`)
 .setColor("0x2f3136")
 message.channel.send(embed)
 
-
-const saveall = new Discord.MessageEmbed()
-.setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
-.addField(`Kayıt Eden`, `${message.author}`, true)
-.addField(`Kullanıcı`, `${member}`, true)
-.addField(`Roller`, `${kadın}, ${kadın2}`, true)
-.addField(`İsim`, `\`${tag} ${name} | ${age}\``, true)
-.addField(`Kanal`, `\`${message.channel.name}\``, true)
-.addField(`Kayıtları`, `\`${alldata}\``, true)
-.addField(`Kayıt Saat`, `\`${kayıtsaat}\``, true)
-.setFooter('Striga Code')
-savelogs.send(saveall)
   
 datab.push(`isim.${message.guild.id}`, {
   userID: member.id, 
   isim: name,
   yas: age,
+  role: "<@&792728496597630986>",
   tag: tag
 })
 
