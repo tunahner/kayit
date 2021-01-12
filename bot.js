@@ -134,16 +134,16 @@ client.on("guildMemberAdd", member => {
       if(üs) {
         üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
           return {
-            '0': `<a:sifir:791319901637050368>`,
-            '1': `<a:bir:791319894850404372>`,
-            '2': `<a:iki:792755958430302218>`,
-            '3': `<a:uc:791319900353724467>`,
-            '4': `<a:dort:791319904451166260>`,
-            '5': `<a:bes:791319895132471387>`,
-            '6': `<a:alti:791319877243371530>`,
-            '7': `<a:yedi:791319898902233138>`,
-            '8': `<a:sekiz:791319901187866624>`,
-            '9': `<a:dokuz:791319900555182080>`}[d];})}
+            '0': ``,
+            '1': ``,
+            '2': ``,
+            '3': ``,
+            '4': ``,
+            '5': ``,
+            '6': ``,
+            '7': ``,
+            '8': ``,
+            '9': ``}[d];})}
     const kanal = member.guild.channels.cache.find(r => r.id === "KANALI DSİ FALAN");
     let user = client.users.cache.get(member.id);
     require("moment-duration-format");
@@ -178,16 +178,16 @@ client.on("guildMemberAdd", (member, message) => {
       if(üs) {
         üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
           return {
-            '0': `<a:sifir:791319901637050368>`,
-            '1': `<a:bir:791319894850404372>`,
-            '2': `<a:iki:792755958430302218>`,
-            '3': `<a:uc:791319900353724467>`,
-            '4': `<a:dort:791319904451166260>`,
-            '5': `<a:bes:791319895132471387>`,
-            '6': `<a:alti:791319877243371530>`,
-            '7': `<a:yedi:791319898902233138>`,
-            '8': `<a:sekiz:791319901187866624>`,
-            '9': `<a:dokuz:791319900555182080>`}[d];})}
+            '0': ``,
+            '1': ``,
+            '2': ``,
+            '3': ``,
+            '4': ``,
+            '5': ``,
+            '6': ``,
+            '7': ``,
+            '8': ``,
+            '9': ``}[d];})}
       const kanal = member.guild.channels.cache.find(r => r.id === "KANALI DSİ FALAN");
       let register = 'REGİSTER ROL ID AYIKS'
     let user = client.users.cache.get(member.id);
