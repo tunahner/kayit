@@ -125,7 +125,171 @@ client.on("guildMemberAdd", member => {
 
 
 //------------------------HOŞGELDİN-EMBEDSİZ-----------------------\\     STG
-client.on("guildMemberAdd")
 
+client.on("guildMemberAdd", member => {
+    require("moment-duration-format")
+      var üyesayısı = member.guild.members.cache.size.toString().replace(/ /g, "    ")
+      var üs = üyesayısı.match(/([0-9])/g)
+      üyesayısı = üyesayısı.replace(/([a-zA-Z])/g, "bilinmiyor").toLowerCase()
+      if(üs) {
+        üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
+          return {
+            '0': `<a:sifir:791319901637050368>`,
+            '1': `<a:bir:791319894850404372>`,
+            '2': `<a:iki:792755958430302218>`,
+            '3': `<a:uc:791319900353724467>`,
+            '4': `<a:dort:791319904451166260>`,
+            '5': `<a:bes:791319895132471387>`,
+            '6': `<a:alti:791319877243371530>`,
+            '7': `<a:yedi:791319898902233138>`,
+            '8': `<a:sekiz:791319901187866624>`,
+            '9': `<a:dokuz:791319900555182080>`}[d];})}
+    const kanal = member.guild.channels.cache.find(r => r.id === "KANALI DSİ FALAN");
+    let user = client.users.cache.get(member.id);
+    require("moment-duration-format");
+      const kurulus = new Date().getTime() - user.createdAt.getTime();  
+     const gecen = moment.duration(kurulus).format(` YY **[Yıl,]** DD **[Gün,]** HH **[Saat,]** mm **[Dakika,]** ss **[Saniye]**`) 
+    var kontrol;
+  if (kurulus < 1296000000) kontrol = 'Hesap Durumu: Güvenilir Değil.'
+  if (kurulus > 1296000000) kontrol = 'Hesap Durumu: Güvenilir Gözüküyor.'
+    moment.locale("tr");
+    kanal.send(`
+\`˃\` Sunucumuza hoş geldin <@`+ member + `>, hesabın \``+gecen+`\` tarihinde oluşturulmuş ve `+kontrol+`
+
+     \`˃\` Kayıt olmak için \`Confirmation\` odalarına geçip <@&ROLIDSIFALAN> yetkilisine teyit vererek kayıt olabilirsin.
+
+          \`˃\` Sunucumuz \`ᴪ\` tagını kullanıcı adına ekleyerek bizelerden birisi olabilirsin.
+
+     \`˃\` Seninle beraber sunucumuz toplam `+üyesayısı+ ` kişiye ulaştı bizi şereflendirdin ! 
+
+\`˃\` İçerize keyifli vakitler geçirmeni diler, sunucumuzun <#KURALLARİDSİFALAN> kısmına göz atmanı tavsiye ederiz.`)});
+  
 
 //------------------------HOŞGELDİN-EMBEDSİZ-----------------------\\     STG
+
+
+//------------------------HOŞGELDİN-EMBEDLİ-----------------------\\     STG
+
+client.on("guildMemberAdd", (member, message) => {
+    require("moment-duration-format")
+      var üyesayısı = member.guild.members.cache.size.toString().replace(/ /g, "    ")
+      var üs = üyesayısı.match(/([0-9])/g)
+      üyesayısı = üyesayısı.replace(/([a-zA-Z])/g, "bilinmiyor").toLowerCase()
+      if(üs) {
+        üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
+          return {
+            '0': `<a:sifir:791319901637050368>`,
+            '1': `<a:bir:791319894850404372>`,
+            '2': `<a:iki:792755958430302218>`,
+            '3': `<a:uc:791319900353724467>`,
+            '4': `<a:dort:791319904451166260>`,
+            '5': `<a:bes:791319895132471387>`,
+            '6': `<a:alti:791319877243371530>`,
+            '7': `<a:yedi:791319898902233138>`,
+            '8': `<a:sekiz:791319901187866624>`,
+            '9': `<a:dokuz:791319900555182080>`}[d];})}
+      const kanal = member.guild.channels.cache.find(r => r.id === "KANALI DSİ FALAN");
+      let register = 'REGİSTER ROL ID AYIKS'
+    let user = client.users.cache.get(member.id);
+    require("moment-duration-format");
+      const kurulus = new Date().getTime() - user.createdAt.getTime();  
+     const gecen = moment.duration(kurulus).format(` YY **[Yıl,]** DD **[Gün,]** HH **[Saat,]** mm **[Dakika,]** ss **[Saniye]**`) 
+    var kontrol;
+  if (kurulus < 1296000000) kontrol = 'Hesap Durumu: Güvenilir Değil.'
+  if (kurulus > 1296000000) kontrol = 'Hesap Durumu: Güvenilir Gözüküyor.'
+    moment.locale("tr");
+  const embed = new Discord.MessageEmbed()
+  .setAuthor(message.guild.name, message.guild.iconURL({dynamic:true}))
+  .setDescription(`
+  <@`+member.id+`> Sunucumuza Katıldı ! 
+  
+  Kayıt edilmek için teyit odasında <@&ROL ID> yetkililerine teyit vermen yeterli !
+  
+  Seninle birlikte `+üyesayısı+` kişiye ulaştık !
+  
+  Sunucumuzun kurallarına uymayı unutma, kurallarımızı okumanı tavsiye ederiz.
+
+  İçeride keyifli vakitler geçirmeni dileriz.
+  `)});
+  
+//------------------------HOŞGELDİN-EMBEDLİ-----------------------\\     STG
+
+
+//------------------------------------------------------------------------------------------------------------------------------------\\
+
+client.on("guildMemberAdd", member => {
+    var moment = require("moment")
+    require("moment-duration-format")
+    moment.locale("tr")
+     var {Permissions} = require('discord.js');
+     var x = moment(member.user.createdAt).add(7, 'days').fromNow()
+     var user = member.user
+     x = x.replace("birkaç saniye önce", " ")
+     if(!x.includes("önce") || x.includes("sonra") ||x == " ") {
+    const kytsz = member.guild.roles.cache.find(r => r.id === "790570395320582193") 
+     var rol = member.guild.roles.cache.get("790570395354660894") // ŞÜPHELİ HESAP ROLÜNÜN İDSİNİ GİRİN
+     var kayıtsız = member.guild.roles.cache.get(kytsz) // UNREGİSTER ROLÜNÜN İDSİNİ GİRİN
+     member.roles.add(rol)
+     member.roles.remove(kytsz)
+
+  member.user.send('Selam Dostum Ne Yazık ki Sana Kötü Bir Haberim Var Hesabın 1 Hafta Gibi Kısa Bir Sürede Açıldığı İçin Fake Hesap Katagorisine Giriyorsun Lütfen Bir Yetkiliyle İletişime Geç Onlar Sana Yardımcı Olucaktır.')
+  setTimeout(() => {
+  
+  }, 1000)
+  
+  
+     }
+          else {
+  
+          }
+      });
+
+//------------------------------------------------------------------------------------------------------------------------------------\\
+
+
+//-----------------------TAG-ROL----------------------\\     STG
+
+client.on("userUpdate", async (stg, yeni) => {
+  var sunucu = client.guilds.cache.get('SUNUCU ID'); // Buraya Sunucu ID
+  var uye = sunucu.members.cache.get(yeni.id);
+  var ekipTag = "TAG"; // Buraya Ekip Tag
+  var ekipRolü = "TAGLI ROL ID"; // Buraya Ekip Rolünün ID
+  var logKanali = "TAG ALINCA MESAJ GİDİCEK KANAL"; // Loglanacağı Kanalın ID
+
+  if (!sunucu.members.cache.has(yeni.id) || yeni.bot || stg.username === yeni.username) return;
+  
+  if ((yeni.username).includes(ekipTag) && !uye.roles.cache.has(ekipRolü)) {
+    try {
+      await uye.roles.add(ekipRolü);
+      await uye.send(`Tagımızı aldığın için teşekkürler! Aramıza hoş geldin.`);
+      await client.channels.cache.get(logKanali).send(new Discord.MessageEmbed().setColor('GREEN').setDescription(`${yeni} adlı üye tagımızı alarak aramıza katıldı!`));
+    } catch (err) { console.error(err) };
+  };
+  
+  if (!(yeni.username).includes(ekipTag) && uye.roles.cache.has(ekipRolü)) {
+    try {
+      await uye.roles.remove(uye.roles.cache.filter(rol => rol.position >= sunucu.roles.cache.get(ekipRolü).position));
+      await uye.send(`Tagımızı bıraktığın için ekip rolü ve yetkili rollerin alındı! Tagımızı tekrar alıp aramıza katılmak istersen;\nTagımız: **${ekipTag}**`);
+      await client.channels.cache.get(logKanali).send(new Discord.MessageEmbed().setColor('RED').setDescription(`${yeni} adlı üye tagımızı bırakarak aramızdan ayrıldı!`));
+    } catch(err) { console.error(err) };
+  };
+});
+
+//----------------------TAG-KONTROL----------------------\\     
+
+client.on("guildMemberAdd", member => {
+  let sunucuid = "790570395278639114"; //Buraya sunucunuzun IDsini yazın
+  let tag = "ᴪ"; //Buraya tagınızı yazın
+  let rol = "TAGLI "; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
+  let channel = client.guilds.cache.get(sunucuid).channels.cache.find(x => x.name == 'auto-tag-role'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
+if(member.user.username.includes(tag)){
+member.roles.add(rol)
+  const tagalma = new Discord.MessageEmbed()
+      .setColor("GREEN")
+      .setDescription(`<@${member.id}> adlı kişi sunucumuza taglı şekilde katıldı, o doğuştan beri bizden !`)
+      .setTimestamp()
+     client.channels.cache.get('790570398454120453').send(tagalma)
+}
+})
+
+//-----------------------TAG-KONTROL----------------------\\    
