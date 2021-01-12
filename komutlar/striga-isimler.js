@@ -2,8 +2,11 @@ const { MessageEmbed } = require("discord.js")
 const db = require('quick.db');
 module.exports.run = async (client, message, users, args) => {
 
-    if(!message.member.roles.cache.some(r => [''].includes(r.id)) && (!message.member.hasPermission("ADMINISTRATOR")))
-    return message.reply("Bu Komutu Kullanmak İçin Yetkiniz Bulunmamakta.")
+if(!message.member.roles.cache.some(r => [''].includes(r.id)) && (!message.member.hasPermission("ADMINISTRATOR")))
+return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`${message.author} bu komutu kullanmak için yetkin bulunmamakta.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
     
 //------------------------------------------------KAYITLAR-----------------------------------------------\\  
 

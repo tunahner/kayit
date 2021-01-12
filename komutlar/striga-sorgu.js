@@ -1,10 +1,13 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async (client, message, args) => {
 
-    if(!message.member.roles.cache.some(r => ["ROL ID", "ROL ID"].includes(r.id)) && (!message.member.hasPermission("ADMINISTRATOR")))
-    return message.reply("Bu Komutu Kullanmak İçin Yetkiniz Bulunmamakta.")
+if(!message.member.roles.cache.some(r => ["ROL ID", "ROL ID"].includes(r.id)) && (!message.member.hasPermission("ADMINISTRATOR")))
+return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`${message.author} bu komutu kullanmak için yetkin bulunmamakta.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
  
  let kullanıcı = message.mentions.users.first()
     
@@ -21,12 +24,12 @@ if(kadın === undefined) kadın = "0"
 if(kayıtlar === null) kayıtlar = "0"
 if(kayıtlar === undefined) kayıtlar = "0"
   
-const sorgu1 = new Discord.MessageEmbed()
+const sorgu1 = new MessageEmbed()
 .setThumbnail(message.author.avatarURL ({ dynamic: true}))
 .setAuthor(message.author.username, message.author.avatarURL)
-.setDescription(`˃ Toplam Kayıtların: \`${kayıtlar}\`
-˃ Toplam Erkek Kayıtların: \`${erkek}\`
-˃ Toplam Kadın Kayıtların: \`${kadın}\``)
+.addField(`Toplam Kayıtların:`, `\`${kayıtlar}\``, true)
+.addField(`Toplam Erkek Kayıtların:`, `\`${erkek}\``, true)
+.addField(`Toplam Kadın Kayıtların:`, `\`${kadın}\``, true)
 .setColor('#dcdd64')
  return message.channel.send(sorgu1)
 };
@@ -42,7 +45,7 @@ if(kadın1 === undefined) kadın1 = "0"
 if(kayıtlar1 === null) kayıtlar1 = "0"
 if(kayıtlar1 === undefined) kayıtlar1 = "0"
   
-const sorgu2 = new Discord.MessageEmbed()
+const sorgu2 = new MessageEmbed()
 .setThumbnail(kullanıcı.avatarURL ({ dynamic: true})) 
 .setAuthor(`${kullanıcı.username}`)
 .addField(`Toplam Kayıtların:`, `\`${kayıtlar1}\``, true)

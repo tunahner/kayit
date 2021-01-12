@@ -3,8 +3,12 @@ const db = require('quick.db')
 
 exports.run = async (client, message, member) => {
   
-if(!message.member.roles.cache.some(r => ['', ''].includes(r.id)) && (!message.member.hasPermission("ADMINISTRATOR")))return message.reply("Bu Komutu Kullanmak İçin Yetkiniz Bulunmamakta.")  
-
+if(!message.member.roles.cache.some(r => ['', ''].includes(r.id)) && (!message.member.hasPermission("ADMINISTRATOR")))
+return message.channel.send(new dc.MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`${message.author} bu komutu kullanmak için yetkin bulunmamakta.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+  
   let uye = message.mentions.users.first() || message.author;
 let bilgi = db.get(`yetkili.${uye.id}.toplam`);
 let yazı = "Top Teyit Listesi"
