@@ -215,7 +215,7 @@ client.on("guildMemberAdd", (member, message) => {
 //------------------------HOŞGELDİN-EMBEDLİ-----------------------\\     STG
 
 
-//------------------------------------------------------------------------------------------------------------------------------------\\
+//------------------------ŞÜPHELİ-HESAP-----------------------\\     STG
 
 client.on("guildMemberAdd", member => {
     var moment = require("moment")
@@ -226,8 +226,8 @@ client.on("guildMemberAdd", member => {
      var user = member.user
      x = x.replace("birkaç saniye önce", " ")
      if(!x.includes("önce") || x.includes("sonra") ||x == " ") {
-    const kytsz = member.guild.roles.cache.find(r => r.id === "790570395320582193") 
-     var rol = member.guild.roles.cache.get("790570395354660894") // ŞÜPHELİ HESAP ROLÜNÜN İDSİNİ GİRİN
+    const kytsz = member.guild.roles.cache.find(r => r.id === "KAYITSIZ ROL ID") 
+     var rol = member.guild.roles.cache.get("ŞÜPHELİ ROL ID") // ŞÜPHELİ HESAP ROLÜNÜN İDSİNİ GİRİN
      var kayıtsız = member.guild.roles.cache.get(kytsz) // UNREGİSTER ROLÜNÜN İDSİNİ GİRİN
      member.roles.add(rol)
      member.roles.remove(kytsz)
@@ -244,7 +244,7 @@ client.on("guildMemberAdd", member => {
           }
       });
 
-//------------------------------------------------------------------------------------------------------------------------------------\\
+//------------------------ŞÜPHELİ-HESAP-----------------------\\     STG
 
 
 //-----------------------TAG-ROL----------------------\\     STG
@@ -254,7 +254,7 @@ client.on("userUpdate", async (stg, yeni) => {
   var uye = sunucu.members.cache.get(yeni.id);
   var ekipTag = "TAG"; // Buraya Ekip Tag
   var ekipRolü = "TAGLI ROL ID"; // Buraya Ekip Rolünün ID
-  var logKanali = "TAG ALINCA MESAJ GİDİCEK KANAL"; // Loglanacağı Kanalın ID
+  var logKanali = "TAG ALINCA MESAJ GİDİCEK KANAL İD"; // Loglanacağı Kanalın ID
 
   if (!sunucu.members.cache.has(yeni.id) || yeni.bot || stg.username === yeni.username) return;
   
@@ -275,12 +275,12 @@ client.on("userUpdate", async (stg, yeni) => {
   };
 });
 
-//----------------------TAG-KONTROL----------------------\\     
+//----------------------TAG-KONTROL----------------------\\     STG    
 
 client.on("guildMemberAdd", member => {
-  let sunucuid = "790570395278639114"; //Buraya sunucunuzun IDsini yazın
-  let tag = "ᴪ"; //Buraya tagınızı yazın
-  let rol = "TAGLI "; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
+  let sunucuid = "SUNUCU ID"; //Buraya sunucunuzun IDsini yazın
+  let tag = "TAG"; //Buraya tagınızı yazın
+  let rol = "TAGLI ROL ID"; //Buraya tag alındığı zaman verilecek rolün IDsini yazın
   let channel = client.guilds.cache.get(sunucuid).channels.cache.find(x => x.name == 'auto-tag-role'); //tagrol-log yerine kendi log kanalınızın ismini yazabilirsiniz
 if(member.user.username.includes(tag)){
 member.roles.add(rol)
@@ -288,8 +288,8 @@ member.roles.add(rol)
       .setColor("GREEN")
       .setDescription(`<@${member.id}> adlı kişi sunucumuza taglı şekilde katıldı, o doğuştan beri bizden !`)
       .setTimestamp()
-     client.channels.cache.get('790570398454120453').send(tagalma)
+     client.channels.cache.get('TAG ALINCA MESAJ GİDİCE KANAL İD').send(tagalma)
 }
 })
 
-//-----------------------TAG-KONTROL----------------------\\    
+//-----------------------TAG-KONTROL----------------------\\     STG    
