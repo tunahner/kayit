@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const datab = require('quick.db')
 const ms = require('ms')
 const moment = require("moment");
@@ -7,42 +7,65 @@ const { parseZone } = require("moment");
 exports.run =  async (client, message, args) => {
   
 if(!['YETKİLİ ROL ID'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
-return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
+return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`${message.author} bu komutu kullanmak için yetkin bulunmamakta.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
   
-const erkekrol = message.guild.roles.cache.find(r => r.id === 'ERKEK ROL ID') //erkekrol ismini değişmeyin
+const tag = 'STRG'   
+const erkekrol = message.guild.roles.cache.find(r => r.id === 'ERKEK ROL ID') 
 const erkekrol2 = message.guild.roles.cache.find(r => r.id === 'ERKEK ROL ID')
 const kayıtsız = message.guild.roles.cache.find(r => r.id === 'KAYITSIZ ROL ID')
+const genelchat = message.guild.channels.cache.find(c => c.id === '')
+const savelog = message.guild.channels.cache.find(c => c.id === '')
 
+if(!erkekrol) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`1. Erkek rolü ayarlanmamış/yanlış id girilmiş kayıt işlemine devam edilemiyor.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(!erkekrol2) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`2. Erkek rolü ayarlanmamış/yanlış id girilmiş kayıt işlemine devam edilemiyor.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(!kayıtsız) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Kayıtsız rolü ayarlanmamış/yanlış id girilmiş kayıt işlemine devam edilemiyor.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
 
 const member = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
-
-if(!member) return message.channel.send(`Bir kullanıcı belirt.`)
-if(member.id === message.author.id) return message.channel.send('Kendini kayıt edemezsin.')
-if(member.id === client.user.id) return message.channel.send('Botu kayıt edemezsin.')
-if(member.id === message.guild.OwnerID) return message.channel.send('Sunucu sahibini kayıt edemezsin.')
-if(member.roles.highest.position >= message.member.roles.highest.position) return message.channel.send(`Bu kullanıcı sizden üst/aynı pozsiyondadır.`)
-  
-if(!args[0]) return message.channel.send('Bir kullanıcı belirt')  
-let timereplace = args[0];
-let time = timereplace.replace(/y/, ' yıl').replace(/d/, ' gün').replace(/s/, ' saniye').replace(/m/, ' dakika').replace(/h/, ' saat') 
- datab.add('case', 1)
- const sadxstg = await datab.fetch('case')
- var tarih = new Date(Date.now())
- var tarih2 = ms(timereplace)
- var tarih3 = Date.now() + tarih2 + 1296000000
- let ay = moment(Date.now()+1296000000).format("MM")
- let gün = moment(Date.now()+1296000000).format("DD")
- let saat = moment(Date.now()+1296000000).format("HH:mm:ss")
- let yıl = moment(Date.now()+1296000000).format("YYYY")
- let kayıtsaat = `\`${gün} ${ay.replace(/01/, 'Ocak').replace(/02/, 'Şubat').replace(/03/, 'Mart').replace(/04/, 'Nisan').replace(/05/, 'Mayıs').replace(/06/, 'Haziran').replace(/07/, 'Temmuz').replace(/08/, 'Ağustos').replace(/09/, 'Eylül').replace(/10/, 'Ekim').replace(/11/, 'Kasım').replace(/12/, 'Aralık')} ${saat} (${yıl})\``
- 
-let tag = 'STRG' 
+if(!member) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`${message.author} bir kullanıcı belirt.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
 let name = args[1]
 let age = Number(args[2])
-if(!name) return message.channel.send('Bir isim belirt.')
-if(!age) return message.channel.send('Bir yaş belirt.')
+if(!name) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Bir isim belirtmelisin.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(!age) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Bir yaş belirtmelisin.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(member.id === message.author.id) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Kendini kayıt edemezsin.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(member.id === client.user.id) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Bot kayıt edemezsin.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(member.id === message.guild.OwnerID) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Sunucu sahibini kayıt edemezsin.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
+if(member.roles.highest.position >= message.member.roles.highest.position) return message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`Belirtilen kullanıcı sizden üst/aynı pozisyonda işleme devam edilemiyor.`)
+.setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
   
-datab.add(`yetkili.${message.author.id}.erkek`, 1)
+  
+datab.add(`yetkili.${message.author.id}.kadin`, 1)
 datab.add(`yetkili.${message.author.id}.toplam`, 1)
 let alldata = datab.fetch(`yetkili.${message.author.id}.toplam`)
 
@@ -52,37 +75,21 @@ member.roles.add(erkekrol2)
 member.roles.remove(kayıtsız)
 
 
-const embed = new Discord.MessageEmbed()
-.setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
-.setDescription(`
-• ${member}, ${message.author} Tarafından Kayıt Edildi.
-• ${erkekrol}, ${erkekrol2} Rolleri Verildi.
-• İsmi \`${tag} ${name} | ${age}\` Olarak Güncellendi.`) 
-.setFooter(`${message.author.username} Toplam ${alldata} Kayıta Sahip.`)
-.setColor("0x2f3136")
-message.channel.send(embed)
-
-
+message.channel.send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+.setDescription(`${member} üyesini ${message.author} kayıt etti. \n\n ${erkekrol}, ${erkekrol2} Rolleri Verildi. \n \`${tag} ${name} | ${age}\` Olarak ismi güncellendi.`)
+.setFooter(`Toplam kayıtların: ${alldata}`)               
+.setColor('#65d8c4'))
   
-datab.push(`isim.${message.guild.id}`, {
-  userID: member.id, 
-  isim: name,
-  yas: age,
-  role: erkekrol.id,
-  tag: tag
-})
+client.channels.cache.get(genelchat).send(`${member} Aramıza katıldı, hoşgeldin umarım keyifli vakit geçirirsin. 
+Sunucumuzun **${tag}** tagını alarak ailemizin parçası olabilirsin. `)
+  
+client.channels.cache.get(savelog).send(new MessageEmbed()
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
+.setDescription(`• Yetkili: ${message.author} | \`${message.author.id}\`\n• Kullanıcı: ${member} | \`${member.id}\`\n• Güncel İsim: \`${tag} ${name} | ${age}\`\n• Roller: ${erkekrol}, ${erkekrol2} \n• Kanal: <#${message.channel.id}> | \`${message.channel.id}\`\n• Kayıtlar: \`${alldata}\` `)
+.setColor('#65d8c4'))
 
-}
 
-exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: ['erkek', 'e', 'boy', 'man'],
-    permLevel: 0
-  }
-
-  exports.help = {
-    name: 'erkek',
-    description: "Etiketlenen kişiyi erkek rolleriyle kayıt eder.",
-    usage: '.erkek @etiket/id İsim Yaş'
-  }
+datab.push(`isim.${message.guild.id}`, {userID: member.id, isim: name, yas: age, role: erkekrol.id})}
+exports.conf = {enabled: true, guildOnly: true, aliases: ['erkek', 'e', 'boy', 'man', 'adam'], permLevel: 0}
+exports.help = {name: 'erkek', description: "Etiketlenen kişiyi erkek rolleriyle kayıt eder.", usage: '.erkek @etiket/id İsim Yaş'}

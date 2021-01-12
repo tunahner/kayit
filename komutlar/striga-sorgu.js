@@ -45,9 +45,9 @@ if(kayıtlar1 === undefined) kayıtlar1 = "0"
 const sorgu2 = new Discord.MessageEmbed()
 .setThumbnail(kullanıcı.avatarURL ({ dynamic: true})) 
 .setAuthor(`${kullanıcı.username}`)
-.setDescription(`˃ Toplam Kayıtların: \`${kayıtlar1}\`
-˃ Toplam Erkek Kayıtların: \`${erkek1}\`
-˃ Toplam Kadın Kayıtların: \`${kadın1}\``)
+.addField(`Toplam Kayıtların:`, `\`${kayıtlar1}\``, true)
+.addField(`Toplam Erkek Kayıtların:`, `\`${erkek1}\``, true)
+.addField(`Toplam Kadın Kayıtların:`, `\`${kadın1}\``, true)
 .setColor('#dcdd64')
  return message.channel.send(sorgu2)
   

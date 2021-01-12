@@ -87,7 +87,7 @@ Sunucumuzun **${tag}** tagını alarak ailemizin parçası olabilirsin. `)
 client.channels.cache.get(savelog).send(new MessageEmbed()
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
 .setDescription(`• Yetkili: ${message.author} | \`${message.author.id}\`\n• Kullanıcı: ${member} | \`${member.id}\`\n• Güncel İsim: \`${tag} ${name} | ${age}\`\n• Roller: ${kadınrol}, ${kadınrol2} \n• Kanal: <#${message.channel.id}> | \`${message.channel.id}\`\n• Kayıtlar: \`${alldata}\` `)
-.setColor('#d466ff'))
+.setColor('#ba61dd'))
 
 
 datab.push(`isim.${message.guild.id}`, {userID: member.id, isim: name, yas: age, role: kadınrol.id})}

@@ -13,11 +13,10 @@ var sayi = 1 //Sıralam için sayı tanımladık
 let data = db.get(`isim.${message.guild.id}`)//İsim verisini data diye tanımladık
 let rol = db.fetch(`rol.${message.guild.id}`)
 if(!data) return message.channel.send(new MessageEmbed()
-    .setColor("0x2f3136") 
+    .setColor("#a22a2a") 
     .setThumbnail(user.user.avatarURL ({ dynamic: true}))      
     .setDescription(`
-    ${isim} Adlı Kullanıcı Daha Önce Kayıt Olmamış.`)
-    .setColor("0x2f3136"))
+    ${isim} Adlı Kullanıcı Daha Önce Kayıt Olmamış.`))
 let isimler = data.filter(x => x.userID === isim.id).map(x => `${sayi++}- \`• ${x.isim} | ${x.yas}\`  (<@&${x.role}>)\n`).join("\n")
 if(isimler === null) isimler = "Kullanıcı hiç kayıt olmamış"
 if(isimler === undefined) isimler = "Kullanıcı hiç kayıt olmamış"
@@ -25,12 +24,12 @@ if(isimler === undefined) isimler = "Kullanıcı hiç kayıt olmamış"
 
 
 const embed = new MessageEmbed()
-.setColor("0x2f3136")
+.setColor("#e6c47e")
         .setThumbnail(user.user.avatarURL ({ dynamic: true}))     
     .setAuthor(`Bu Kullanıcı ${sayi-1} Kere Kayıt Olmuş`) 
     .setDescription(`
     ${isimler}`)
-    .setColor("#e99546")
+    .setColor("#e6c47e")
 message.channel.send(embed)
 }
 
