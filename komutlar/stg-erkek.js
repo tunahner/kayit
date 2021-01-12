@@ -6,7 +6,7 @@ const { parseZone } = require("moment");
 
 exports.run =  async (client, message, args) => {
   
-if(!['783839815337508914'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
+if(!['YETKİLİ ROL ID'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) 
 return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
 const erkekrol = message.guild.roles.cache.find(r => r.id === 'ERKEK ROL ID') //erkekrol ismini değişmeyin
