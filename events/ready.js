@@ -16,6 +16,6 @@ module.exports = client => {
     } ismi ile giriş yapıldı!`
   );
 
-    client.user.setActivity("Striga");
+    client.user.setActivity("Striga #Code");
 };
 

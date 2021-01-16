@@ -158,7 +158,7 @@ client.on("guildMemberAdd", member => {
 
      \`˃\` Kayıt olmak için \`Confirmation\` odalarına geçip <@&ROLIDSIFALAN> yetkilisine teyit vererek kayıt olabilirsin.
 
-          \`˃\` Sunucumuz \`ᴪ\` tagını kullanıcı adına ekleyerek bizelerden birisi olabilirsin.
+          \`˃\` Sunucumuz \`Tagınız\` tagını kullanıcı adına ekleyerek bizelerden birisi olabilirsin.
 
      \`˃\` Seninle beraber sunucumuz toplam `+üyesayısı+ ` kişiye ulaştı bizi şereflendirdin ! 
 
