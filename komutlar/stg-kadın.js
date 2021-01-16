@@ -81,10 +81,10 @@ message.channel.send(new MessageEmbed()
 .setFooter(`Toplam kayıtların: ${alldata}`)               
 .setColor('#ba61dd'))
   
-client.channels.cache.get(genelchat).send(`${member} Aramıza katıldı, hoşgeldin umarım keyifli vakit geçirirsin. 
+genelchat.send(`${member} Aramıza katıldı, hoşgeldin umarım keyifli vakit geçirirsin. 
 Sunucumuzun **${tag}** tagını alarak ailemizin parçası olabilirsin. `)
   
-client.channels.cache.get(savelog).send(new MessageEmbed()
+savelog.send(new MessageEmbed()
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
 .setDescription(`• Yetkili: ${message.author} | \`${message.author.id}\`\n• Kullanıcı: ${member} | \`${member.id}\`\n• Güncel İsim: \`${tag} ${name} | ${age}\`\n• Roller: ${kadınrol}, ${kadınrol2} \n• Kanal: <#${message.channel.id}> | \`${message.channel.id}\`\n• Kayıtlar: \`${alldata}\` `)
 .setColor('#ba61dd'))
