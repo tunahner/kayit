@@ -13,11 +13,11 @@ return message.channel.send(new MessageEmbed()
 .setColor('#a22a2a')).then(x => x.delete({timeout: 5000}));
   
 const tag = 'STRG'   
-const erkekrol = message.guild.roles.cache.find(r => r.id === '788899168151928892') 
-const erkekrol2 = message.guild.roles.cache.find(r => r.id === '788899177270738956')
-const kayıtsız = message.guild.roles.cache.find(r => r.id === '788900147090292796')
-const genelchat = message.guild.channels.cache.find(c => c.id === '799994536751136778')
-const savelog = message.guild.channels.cache.find(c => c.id === '799994563023863881')
+const erkekrol = message.guild.roles.cache.find(r => r.id === '') 
+const erkekrol2 = message.guild.roles.cache.find(r => r.id === '')
+const kayıtsız = message.guild.roles.cache.find(r => r.id === '')
+const genelchat = message.guild.channels.cache.find(c => c.id === '')
+const savelog = message.guild.channels.cache.find(c => c.id === '')
 
 if(!erkekrol) return message.channel.send(new MessageEmbed()
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))

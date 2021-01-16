@@ -134,17 +134,17 @@ client.on("guildMemberAdd", member => {
       if(üs) {
         üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
           return {
-            '0': `<a:sifir:799983487557435434>`,
-            '1': `<a:bir:799983456393232404>`,
-            '2': `<a:iki:799983486332174387>`,
-            '3': `<a:uc:799983487377342474>`,
-            '4': `<a:dort:799983485909467166>`,
-            '5': `<a:bes:799983456649478174>`,
-            '6': `<a:alti:799983444746698752>`,
-            '7': `<a:yedi:799983484504113184>`,
-            '8': `<a:sekiz:799983487914082314>`,
-            '9': `<a:dokuz:799983474677121034>`}[d];})}
-    const kanal = member.guild.channels.cache.find(r => r.id === "799980199658651689");
+            '0': ``,
+            '1': ``,
+            '2': ``,
+            '3': ``,
+            '4': ``,
+            '5': ``,
+            '6': ``,
+            '7': ``,
+            '8': ``,
+            '9': ``}[d];})}
+    const kanal = member.guild.channels.cache.find(r => r.id === "KANAL ID");
     let user = client.users.cache.get(member.id);
     require("moment-duration-format");
       const kurulus = new Date().getTime() - user.createdAt.getTime();  
@@ -156,13 +156,13 @@ client.on("guildMemberAdd", member => {
     kanal.send(`
 \`˃\` Sunucumuza hoş geldin <@`+ member + `>, hesabın \``+gecen+`\` tarihinde oluşturulmuş ve `+kontrol+`
 
-     \`˃\` Kayıt olmak için \`Confirmation\` odalarına geçip <@&788898307320840242> yetkilisine teyit vererek kayıt olabilirsin.
+     \`˃\` Kayıt olmak için \`Confirmation\` odalarına geçip <@&REGİSTER ROL ID> yetkilisine teyit vererek kayıt olabilirsin.
 
           \`˃\` Sunucumuz \`Tagınız\` tagını kullanıcı adına ekleyerek bizelerden birisi olabilirsin.
 
      \`˃\` Seninle beraber sunucumuz toplam `+üyesayısı+ ` kişiye ulaştı bizi şereflendirdin ! 
 
-\`˃\` İçerize keyifli vakitler geçirmeni diler, sunucumuzun <#799980199658651689> kısmına göz atmanı tavsiye ederiz.`)});
+\`˃\` İçerize keyifli vakitler geçirmeni diler, sunucumuzun <#KURALLAR KANALI> kısmına göz atmanı tavsiye ederiz.`)});
   
 
 //------------------------HOŞGELDİN-EMBEDSİZ-----------------------\\     STG
@@ -178,18 +178,18 @@ client.on("guildMemberAdd", member => {
       if(üs) {
         üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
           return {
-            '0': `<a:sifir:799983487557435434>`,
-            '1': `<a:bir:799983456393232404>`,
-            '2': `<a:iki:799983486332174387>`,
-            '3': `<a:uc:799983487377342474>`,
-            '4': `<a:dort:799983485909467166>`,
-            '5': `<a:bes:799983456649478174>`,
-            '6': `<a:alti:799983444746698752>`,
-            '7': `<a:yedi:799983484504113184>`,
-            '8': `<a:sekiz:799983487914082314>`,
-            '9': `<a:dokuz:799983474677121034>`}[d];})}
-      const kanal = member.guild.channels.cache.find(r => r.id === "799980199658651689");
-      let register = '788898307320840242'
+            '0': ``,
+            '1': ``,
+            '2': ``,
+            '3': ``,
+            '4': ``,
+            '5': ``,
+            '6': ``,
+            '7': ``,
+            '8': ``,
+            '9': ``}[d];})}
+      const kanal = member.guild.channels.cache.find(r => r.id === "KANAL ID");
+      let register = 'REGİSTER ROL ID'
     let user = client.users.cache.get(member.id);
     require("moment-duration-format");
       const kurulus = new Date().getTime() - user.createdAt.getTime();  
@@ -203,7 +203,7 @@ client.on("guildMemberAdd", member => {
   .setDescription(`
   <@`+member.id+`> Sunucumuza Katıldı ! 
   
-  Kayıt edilmek için teyit odasında <@&788898307320840242> yetkililerine teyit vermen yeterli !
+  Kayıt edilmek için teyit odasında <@&{register}> yetkililerine teyit vermen yeterli !
   
   Seninle birlikte `+üyesayısı+` kişiye ulaştık !
   
