@@ -18,8 +18,7 @@ let rol = db.fetch(`rol.${message.guild.id}`)
 if(!data) return message.channel.send(new MessageEmbed()
     .setColor("#a22a2a") 
     .setThumbnail(user.user.avatarURL ({ dynamic: true}))      
-    .setDescription(`
-    ${isim} Adlı Kullanıcı Daha Önce Kayıt Olmamış.`))
+    .setDescription(`${isim} Adlı Kullanıcı Daha Önce Kayıt Olmamış.`))
 let isimler = data.filter(x => x.userID === isim.id).map(x => `${sayi++}- \`• ${x.isim} | ${x.yas}\`  (<@&${x.role}>)\n`).join("\n")
 if(isimler === null) isimler = "Kullanıcı hiç kayıt olmamış"
 if(isimler === undefined) isimler = "Kullanıcı hiç kayıt olmamış"
@@ -27,10 +26,9 @@ if(isimler === undefined) isimler = "Kullanıcı hiç kayıt olmamış"
 
 
 const embed = new MessageEmbed()
-.setColor("#e6c47e")
         .setThumbnail(user.user.avatarURL ({ dynamic: true}))     
     .setAuthor(`Bu Kullanıcı ${sayi-1} Kere Kayıt Olmuş`) 
-    .setDescription(`
+    .setDescription(` Kullanıcının Eski İsimleri:
     ${isimler}`)
     .setColor("#e6c47e")
 message.channel.send(embed)
