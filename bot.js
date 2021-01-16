@@ -158,7 +158,7 @@ client.on("guildMemberAdd", member => {
   Sunucumuzun kurallarına uymayı unutma, kurallarımızı okumanı tavsiye ederiz.
 
   İçeride keyifli vakitler geçirmeni dileriz.`)
-  .setImage(`https://data.whicdn.com/images/138550574/original.gif`)
+  .setImage(`https://media0.giphy.com/media/NKEt9elQ5cR68/200.gif`)
   kanal.send(embed)
   kanal.send(`<@&${register}>`)
 });
