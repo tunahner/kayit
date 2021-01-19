@@ -124,49 +124,6 @@ client.on("guildMemberAdd", member => {
 //-----------------------GİRENE-ROL-VERME----------------------\\     STG
 
 
-//------------------------HOŞGELDİN-EMBEDSİZ-----------------------\\     STG
-
-client.on("guildMemberAdd", member => {
-    require("moment-duration-format")
-      var üyesayısı = member.guild.members.cache.size.toString().replace(/ /g, "    ")
-      var üs = üyesayısı.match(/([0-9])/g)
-      üyesayısı = üyesayısı.replace(/([a-zA-Z])/g, "bilinmiyor").toLowerCase()
-      if(üs) {
-        üyesayısı = üyesayısı.replace(/([0-9])/g, d => {
-          return {
-            '0': ``,
-            '1': ``,
-            '2': ``,
-            '3': ``,
-            '4': ``,
-            '5': ``,
-            '6': ``,
-            '7': ``,
-            '8': ``,
-            '9': ``}[d];})}
-    const kanal = member.guild.channels.cache.find(r => r.id === "KANAL ID");
-    let user = client.users.cache.get(member.id);
-    require("moment-duration-format");
-      const kurulus = new Date().getTime() - user.createdAt.getTime();  
-     const gecen = moment.duration(kurulus).format(` YY **[Yıl,]** DD **[Gün,]** HH **[Saat,]** mm **[Dakika,]** ss **[Saniye]**`) 
-    var kontrol;
-  if (kurulus < 1296000000) kontrol = 'Hesap Durumu: Güvenilir Değil.'
-  if (kurulus > 1296000000) kontrol = 'Hesap Durumu: Güvenilir Gözüküyor.'
-    moment.locale("tr");
-    kanal.send(`
-\`˃\` Sunucumuza hoş geldin <@`+ member + `>, hesabın \``+gecen+`\` tarihinde oluşturulmuş ve `+kontrol+`
-
-     \`˃\` Kayıt olmak için \`Confirmation\` odalarına geçip <@&REGİSTER ROL ID> yetkilisine teyit vererek kayıt olabilirsin.
-
-          \`˃\` Sunucumuz \`Tagınız\` tagını kullanıcı adına ekleyerek bizelerden birisi olabilirsin.
-
-     \`˃\` Seninle beraber sunucumuz toplam `+üyesayısı+ ` kişiye ulaştı bizi şereflendirdin ! 
-
-\`˃\` İçerize keyifli vakitler geçirmeni diler, sunucumuzun <#KURALLAR KANALI> kısmına göz atmanı tavsiye ederiz.`)});
-  
-
-//------------------------HOŞGELDİN-EMBEDSİZ-----------------------\\     STG
-
 
 //------------------------HOŞGELDİN-EMBEDLİ-----------------------\\     STG
 
